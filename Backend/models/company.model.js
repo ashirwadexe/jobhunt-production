@@ -15,7 +15,7 @@ const companySchema = new mongoose.Schema({
         type: String,
     },
     logo: {
-        type: String //URL of the company's logo
+        type: String //URL of the company's logo -> here we use CLOUDINARY to store the images
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
