@@ -47,7 +47,7 @@ export const login = async (req, res) => {
         const {email, password, role} = req.body;
         if(!email || !password || !role) {
             return res.status(400).json({
-                message: "Spmething is missing",
+                message: "Something is missing",
                 success: false
             });
         }
