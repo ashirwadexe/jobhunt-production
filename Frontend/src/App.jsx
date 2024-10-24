@@ -1,10 +1,15 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/shared/Navbar'
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
+import Home from './components/Home'
 
 const appRouter = createBrowserRouter([
+  {
+    path:'/',
+    element:<Home/>
+  },
   {
     path:'/login',
     element:<Login/>
@@ -18,7 +23,7 @@ const appRouter = createBrowserRouter([
 function App() {
   return (
     <>
-      <Navbar/>
+      <RouterProvider router={appRouter} />
     </>
   )
 }
