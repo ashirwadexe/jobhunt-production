@@ -7,7 +7,7 @@ import { Button } from "../ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { USER_API_END_POINT } from "@/utils/constants";
-import { Toast } from "../ui/toast";
+import { toast } from 'sonner';
 
 function Signup() {
   const [input, setInput] = useState({
@@ -31,32 +31,30 @@ function Signup() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
+    const formData = new FormData();    //formdata object
     formData.append("fullname", input.fullname);
     formData.append("email", input.email);
-    formData.append("password", input.password);
     formData.append("phoneNumber", input.phoneNumber);
+    formData.append("password", input.password);
     formData.append("role", input.role);
-    if(input.file) {
-      formData.append("file", input.file);
+    if (input.file) {
+        formData.append("file", input.file);
     }
+
     try {
-      const res = await axios.post(`${USER_API_END_POINT}/register`, formData, {
-        headers: { 'Content-Type': "multipart/form-data" },
-        withCredentials: true,
-    });
-    if (res.data.success) {
-        navigate("/login");
-        Toast.success(res.data.message);
-    }
+        const res = await axios.post(`${USER_API_END_POINT}/register`, formData, {
+            headers: { 'Content-Type': "multipart/form-data" },
+            withCredentials: true,
+        });
+        if (res.data.success) {
+            navigate("/login");
+            toast.success(res.data.message);
+        }
     } catch (error) {
-      if (error.response) {
-        Toast.error(error.response.data.message);
-      } else {
-        Toast.error("Network error occurred. Please try again.");
+        console.log(error);
+        toast.error(error.response.data.message);
       }
-    }
-  }
+}
 
   return (
     <>

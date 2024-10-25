@@ -5,6 +5,10 @@ import { Input } from "../ui/input";
 import { RadioGroup } from "../ui/radio-group";
 import { Button } from "../ui/button";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from 'sonner';
+import axios from 'axios';
+import { USER_API_END_POINT } from "@/utils/constants";
+
 
 function Login() {
   const [input, setInput] = useState({
@@ -22,11 +26,11 @@ function Login() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${USER_API_END_POINT}/login`, formData, {
+      const res = await axios.post(`${USER_API_END_POINT}/login`, input, {
         headers: {
-          "Content-Type":"application/json"
+            "Content-Type": "application/json"
         },
-        withCredentials:true,
+        withCredentials: true,
       });
       if(res.data.success){
         navigate("/");
@@ -34,7 +38,8 @@ function Login() {
       }
     } catch (error) {
       console.log(error);
-    }
+      toast.error(error?.response?.data?.message || "Something went wrong!");
+  }
   }
 
   return (
