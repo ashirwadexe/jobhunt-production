@@ -1,4 +1,4 @@
- {
+{
   "name": "jobsearch",
   "version": "1.0.0",
   "description": "It is the backed of jobsearch website",
@@ -19,6 +19,7 @@
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.7.1",
+    "multer": "^1.4.5-lts.1",
     "nodemon": "^3.1.7"
   }
 }

@@ -7,6 +7,7 @@ import jwt from 'jsonwebtoken';
 export const register = async (req, res) => {
     try {
         const {fullname, email, password, phoneNumber, role} = req.body;
+        console.log(fullname, email, password, phoneNumber, role);
         if(!fullname || !email || !phoneNumber || !password || !role) {
             return res.status(400).json({
                 message: "Something is missing !",
@@ -24,12 +25,19 @@ export const register = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
+        // Check if a file (profile image) was uploaded
+        let profileImage = null;
+        if (req.file) {
+            profileImage = req.file.buffer; // You can process or store this buffer as needed
+        }
+
         await User.create({
             fullname,
             email,
             phoneNumber,
             password: hashedPassword,
-            role
+            role,
+            profileImage
         });
 
         return res.status(200).json({
@@ -45,6 +53,7 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
     try {
         const {email, password, role} = req.body;
+        console.log(email, password, role);
         if(!email || !password || !role) {
             return res.status(400).json({
                 message: "Something is missing",
