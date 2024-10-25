@@ -18,6 +18,9 @@ html, body, #root {
   height: 100%;
 }
 
+.text-custom-toast {
+  color: #F83002 !important; /* Override the text color */
+}
 
 @layer base {
   :root {
