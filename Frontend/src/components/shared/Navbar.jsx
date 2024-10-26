@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 
 function Navbar() {
-    const user = true;
+    const user = false;
 
     return (
     <div className='bg-white'>
@@ -17,9 +17,9 @@ function Navbar() {
             </div>
             <div className='flex items-center gap-12'>
                 <ul className='flex font-medium items-center gap-5' >
-                    <li>Home</li>
-                    <li>Jobs</li>
-                    <li>Browse</li>
+                    <Link to='/'><li>Home</li></Link>
+                    <Link to='/jobs'><li>Jobs</li></Link>
+                    <Link to='/'><li>Browse</li></Link>
                 </ul>
 
                 {
