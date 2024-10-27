@@ -8,7 +8,7 @@ function Footer() {
     <div className='bg-white p-5 mt-10'>
         <div className='flex items-start justify-between mx-auto max-w-7xl'>
             <div className='w-1/5'>
-                <h1 className='text-3xl font-bold mb-4'><Link to='/'>Job<span className='text-[#F83002]'>Hunt</span></Link></h1>
+                <h1 className='text-2xl font-bold mb-4'><Link to='/'>Job<span className='text-[#F83002]'>Hunt</span></Link></h1>
                 <p className='text-muted-foreground text-sm'>Connecting talented individuals with the right opportunities. Whether you're a student seeking your dream job or a recruiter in search of top talent, JobHunt is here to help.</p>
             </div>
             <div>
