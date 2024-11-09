@@ -47,7 +47,7 @@ export const getAllJobs = async (req, res) => {
             ]
         };
 
-        const jobs = await Job.find(query);
+        const jobs = await Job.find(query).populate('company', 'name'); // Populate only the 'name' field
         if(!jobs) {
             return res.status(404).json({
                 message: "Jobs not found",
@@ -68,7 +68,7 @@ export const getAllJobs = async (req, res) => {
 export const getJobById = async (req, res) => {
     try {
         const jobId = req.params.id;
-        const job = await Job.findById(jobId);
+        const job = await Job.findById(jobId).populate('company', 'name');
 
         if(!job) {
             return res.status(404).json({
