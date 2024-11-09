@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
         resume: {type: String},
         resumeOriginName: {type: String}, //url of the resume
         company: {type: mongoose.Schema.Types.ObjectId, ref: 'Company'},
-        profile: {
+        profilePhoto: {
             type: String,
             default: ""
         }
