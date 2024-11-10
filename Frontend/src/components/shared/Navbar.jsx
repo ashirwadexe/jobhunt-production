@@ -38,9 +38,20 @@ function Navbar() {
             </div>
             <div className='flex items-center gap-12'>
                 <ul className='flex font-medium items-center gap-5' >
-                    <Link to='/'><li>Home</li></Link>
-                    <Link to='/jobs'><li>Jobs</li></Link>
-                    <Link to='/browse'><li>Browse</li></Link>
+                {
+                    user && user.role === 'recruiter' ? (
+                        <>
+                            <li><Link to="/admin/companies">Companies</Link></li>
+                            <li><Link to="/admin/jobs">Jobs</Link></li>
+                        </>
+                    ) : (
+                         <>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/jobs">Jobs</Link></li>
+                            <li><Link to="/browse">Browse</Link></li>
+                        </>
+                    )
+                }
                 </ul>
 
                 {
@@ -67,10 +78,14 @@ function Navbar() {
                                     </div>
                                 </div>
                                 <div className='flex flex-col text-gray-600'>
-                                    <div className='flex w-fit items-center gap-2 cursor-pointer'>
-                                        <User2/>
-                                        <Button variant="link"><Link to='/profile'>View Profile</Link></Button>
-                                    </div>
+                                    {
+                                        user && user.role === 'student' && (
+                                            <div className='flex w-fit items-center gap-2 cursor-pointer'>
+                                                <User2/>
+                                                <Button variant="link"><Link to='/profile'>View Profile</Link></Button>
+                                            </div>
+                                        )
+                                    }
                                     <div className='flex w-fit items-center gap-2 cursor-pointer'>
                                         <LogOutIcon/>
                                         <Button onClick={logoutHandler} variant="link">Logout</Button>
