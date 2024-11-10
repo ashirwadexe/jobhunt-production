@@ -5,8 +5,10 @@ import { Button } from '../ui/button'
 import CompaniesTable from './CompaniesTable'
 import { CrossIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import useGetAllCompanies from '@/hooks/useGetAllCompanies'
 
 function AdminCompanies() {
+  useGetAllCompanies();
   const navigate = useNavigate();
 
   return (
