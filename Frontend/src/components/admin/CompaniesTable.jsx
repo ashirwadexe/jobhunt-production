@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
 import { Avatar, AvatarImage } from '../ui/avatar'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
@@ -10,7 +10,7 @@ function CompaniesTable() {
     const { companies } = useSelector(store => store.company);
     return (
     <div>
-        <Table className="bg-white p-10 border border-gray-300 my-10">
+        <Table className="bg-white p-10 border border-gray-300 mt-10">
             <TableCaption>A list of your recent registered companies.</TableCaption>
             <TableHeader>
                 <TableRow>

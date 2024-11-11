@@ -138,7 +138,7 @@ function CompanySetup() {
                         </div>
                     </div>
                     {
-                        loading ? <Button className="w-full my-4 bg-[#F83002]"><Loader2 className="mr-2 h-4 w-4 animate-spin bg-[#d43511]"/>Please wait</Button> : <Button type="submit" className="w-full my-4 bg-[#F83002] hover:bg-[#d43511]">Update Company Data</Button>
+                        loading ? <Button className="w-full my-4 bg-[#F83002]"><Loader2 className="mr-2 h-4 w-4 animate-spin"/>Please wait</Button> : <Button type="submit" className="w-full my-4 bg-[#F83002] hover:bg-[#d43511]">Update Company Data</Button>
                     } 
                 </form>
             </div>

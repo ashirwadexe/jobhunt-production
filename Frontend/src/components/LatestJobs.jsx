@@ -14,6 +14,9 @@ function LatestJobs() {
                 {
                     allJobs.length <= 0 ? <span className='text-4xl font-medium'>No Jobs Found</span> : allJobs?.slice(0,6).map((job) => <LatestJobCards key={job._id} job={job}/>)
                 }
+                {/* {
+                    allJobs?.slice(0,6).map((job) => <LatestJobCards key={job._id} job={job}/>)
+                } */}
             </div>         
         </div>
     )
