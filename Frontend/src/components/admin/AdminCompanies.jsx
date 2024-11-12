@@ -24,7 +24,7 @@ function AdminCompanies() {
         </div>
       </div>
 
-      <div className='max-w-7xl mx-auto my-10 bg-white p-10 rounded-md border border-gray-300 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]'>
+      <div className='max-w-7xl mx-auto my-10 bg-white p-10 rounded-md border border-gray-300 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]'>
         
         <div className='flex items-center justify-between '>
           {/* <Input

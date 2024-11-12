@@ -38,7 +38,7 @@ function CompanyCreate() {
     return (
     <div>
         <Navbar/>
-        <div className='max-w-4xl mx-auto my-10 p-10 bg-white border border-gray-300 rounded shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]'>
+        <div className='max-w-4xl mx-auto my-10 p-10 bg-white border border-gray-300 rounded shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]'>
             <div className='my-10'>
                 <div className='flex items-center gap-2'>
                     <Building2/>
