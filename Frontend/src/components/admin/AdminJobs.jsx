@@ -4,7 +4,7 @@ import Navbar from '../shared/Navbar'
 function AdminJobs() {
   return (
     <div>
-        <Navbar/>
+      <Navbar/>
     </div>
   )
 }

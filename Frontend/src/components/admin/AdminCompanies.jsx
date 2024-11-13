@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../shared/Navbar'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
@@ -7,10 +7,19 @@ import { CrossIcon, Search } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import useGetAllCompanies from '@/hooks/useGetAllCompanies'
 import Footer from '../shared/Footer'
+import CompanyCrousal from '../CompanyCrousal'
+import { useDispatch } from 'react-redux'
+import { setSearchCompanyByText } from '@/redux/companySlice'
 
 function AdminCompanies() {
   useGetAllCompanies();
+  const [input, setInput] = useState("");
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setSearchCompanyByText(input));
+  }, [input])
 
   return (
     <div>
@@ -23,6 +32,8 @@ function AdminCompanies() {
             
         </div>
       </div>
+
+      <CompanyCrousal/>
 
       <div className='max-w-7xl mx-auto my-10 bg-white p-10 rounded-md border border-gray-300 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]'>
         
@@ -42,6 +53,7 @@ function AdminCompanies() {
           <input
             type="text"
             placeholder="Search registered companies..."
+            onChange={(e) => setInput(e.target.value)}
             className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg"
           />
         </div>

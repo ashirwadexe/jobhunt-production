@@ -10,8 +10,12 @@ import { COMPANY_API_END_POINT } from '@/utils/constants'
 import { toast } from 'sonner'
 import { useSelector } from 'react-redux'
 import store from '@/redux/store'
+import useGetCompanyById from '@/hooks/useGetCompanyById'
 
 function CompanySetup() {
+
+    const params = useParams();
+    useGetCompanyById(params.id);
     const [input, setInput] = useState({
         name:"",
         description:"",
@@ -22,7 +26,6 @@ function CompanySetup() {
 
     const {singleCompany} = useSelector(store => store.company);
     const [loading, setLoading] = useState(false);
-    const params = useParams();
     const navigate = useNavigate();
 
     const changeEventhandler = (e) => {
