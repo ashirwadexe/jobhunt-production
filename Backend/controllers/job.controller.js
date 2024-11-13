@@ -92,7 +92,10 @@ export const getJobById = async (req, res) => {
 export const getAdminJob = async (req, res) => {
     try {
         const adminId = req.id;
-        const job = await Job.findOne({createdBy: adminId});
+        const job = await Job.findOne({createdBy: adminId}).populate({
+            path:'company',
+            createdAt: -1
+        });
 
         if(!job) {
             return res.status(404).json({
