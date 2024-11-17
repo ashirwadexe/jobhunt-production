@@ -8,12 +8,14 @@ import { useNavigate } from 'react-router-dom'
 
 const AdminJobsTable = () => { 
     const {allAdminJobs, searchJobByText} = useSelector(store=>store.job);
+    console.log("alladminJobs: ", allAdminJobs);
     // Initialize with empty array
-    const [filterJobs, setFilterJobs] = useState([]);
+    const [filterJobs, setFilterJobs] = useState(allAdminJobs);
     const navigate = useNavigate();
 
     useEffect(()=>{ 
-        if (!Array.isArray(allAdminJobs)) return; // Add safety check
+        // if (!Array.isArray(allAdminJobs)) return; // Add safety check
+        
         
         console.log('called');
         const filteredJobs = allAdminJobs.filter((job)=>{
@@ -39,7 +41,7 @@ const AdminJobsTable = () => {
                 </TableHeader>
                 <TableBody>
                     {
-                        filterJobs?.map((job) => (
+                        filteredJobs?.map((job) => (
                             <TableRow key={job._id}>
                                 <TableCell>{job?.company?.name}</TableCell>
                                 <TableCell>{job?.title}</TableCell>
