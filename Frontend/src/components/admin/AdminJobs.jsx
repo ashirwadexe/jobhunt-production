@@ -8,7 +8,7 @@ import AdminJobsTable from './AdminJobsTable'
 import useGetAllAdminJobs from '@/hooks/useGetAllAdminJobs'
 import { setSearchJobByText } from '@/redux/jobSlice'
 
-const AdminJobs = () => {
+const AdminJobs = () => { 
   useGetAllAdminJobs();
   const [input, setInput] = useState("");
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ const AdminJobs = () => {
             placeholder="Filter by name, role"
             onChange={(e) => setInput(e.target.value)}
           />
-          <Button onClick={() => navigate("/admin/jobs/create")}>New Jobs</Button>
+          <Button className="bg-[#F83002] hover:bg-[#F83033]" onClick={() => navigate("/admin/jobs/create")}>New Jobs</Button>
         </div>
         <AdminJobsTable />
       </div>
