@@ -4,7 +4,6 @@ import { Label } from '@radix-ui/react-label'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button';
 import { useSelector } from 'react-redux';
-import store from '@/redux/store';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import axios from 'axios';
 import { JOB_API_END_POINT } from '@/utils/constants';
