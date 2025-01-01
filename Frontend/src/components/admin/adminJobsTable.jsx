@@ -1,43 +1,43 @@
 import React, { useEffect, useState } from "react";
-// import {
-//     Table,
-//     TableBody,
-//     TableCaption,
-//     TableCell,
-//     TableHead,
-//     TableHeader,
-//     TableRow,
-// } from "../ui/table";
-// import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-// import { Edit2, Eye, MoreHorizontal } from "lucide-react";
-// import { useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "../ui/table";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { Edit2, Eye, MoreHorizontal } from "lucide-react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const AdminJobsTable = () => {
-    // const { allAdminJobs, searchJobByText } = useSelector((store) => store.job);
-    // const [filterJobs, setFilterJobs] = useState([]);
-    // const navigate = useNavigate();
+    const { allAdminJobs, searchJobByText } = useSelector((store) => store.job);
+    const [filterJobs, setFilterJobs] = useState([]);
+    const navigate = useNavigate();
 
-    // useEffect(() => {
+    useEffect(() => {
        
-    //     if (!Array.isArray(allAdminJobs)) {
-    //         setFilterJobs([]);
-    //         return;
-    //     }
+        if (!Array.isArray(allAdminJobs)) {
+            setFilterJobs([]);
+            return;
+        }
 
-    //     const filteredJobs = allAdminJobs.filter((job) => {
-    //         if (!searchJobByText) return true;
-    //         return (
-    //             job?.title?.toLowerCase().includes(searchJobByText.toLowerCase()) ||
-    //             job?.company?.name?.toLowerCase().includes(searchJobByText.toLowerCase())
-    //         );
-    //     });
-    //     setFilterJobs(filteredJobs);
-    // }, [allAdminJobs, searchJobByText]);
+        const filteredJobs = allAdminJobs.filter((job) => {
+            if (!searchJobByText) return true;
+            return (
+                job?.title?.toLowerCase().includes(searchJobByText.toLowerCase()) ||
+                job?.company?.name?.toLowerCase().includes(searchJobByText.toLowerCase())
+            );
+        });
+        setFilterJobs(filteredJobs);
+    }, [allAdminJobs, searchJobByText]);
 
     return (
         <div>
-            {/* <Table>
+            <Table>
                 <TableCaption>A list of your recent posted jobs</TableCaption>
                 <TableHeader>
                     <TableRow>
@@ -49,7 +49,7 @@ const AdminJobsTable = () => {
                 </TableHeader>
                 <TableBody>
                     {filterJobs.map((job) => (
-                        <tr>
+                        <TableRow key={job._id}>
                             <TableCell>{job.company.name || "N/A"}</TableCell>
                             <TableCell>{job?.title || "N/A"}</TableCell>
                             <TableCell>{job?.createdAt ? job.createdAt.split("T")[0] : "N/A"}</TableCell>
@@ -76,10 +76,10 @@ const AdminJobsTable = () => {
                                     </PopoverContent>
                                 </Popover>
                             </TableCell>
-                        </tr>
+                        </TableRow>
                     ))}
                 </TableBody>
-            </Table> */}
+            </Table>
         </div>
     );
 };
