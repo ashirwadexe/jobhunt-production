@@ -166,6 +166,7 @@ export const profileUpdate = async (req, res) => {
             user.profile.resume = cloudResponse.secure_url // save the cloudinary url
             user.profile.resumeOriginName = file.originalname // Save the original file name
         }
+        
 
 
         await user.save();
